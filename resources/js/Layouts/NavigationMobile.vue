@@ -15,10 +15,10 @@
       leave-active-class="transition ease-in-out duration-150"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0 transform -translate-x-20">
-    <aside v-show="$page.props.showingMobileMenu" class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white md:hidden">
-      <div class="py-4 text-gray-500">
-        <Link class="ml-6 text-lg font-bold text-gray-800" :href="route('dashboard')">
-        Windmill
+    <aside v-show="$page.props.showingMobileMenu" class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-darkgreen md:hidden">
+      <div class="py-4 text-white">
+        <Link class="ml-6 text-lg font-bold text-white" :href="route('dashboard')">
+          Endemika
       </Link>
         <ul class="mt-6">
           <li class="relative px-6 py-3">

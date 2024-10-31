@@ -16,11 +16,11 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                bosque: '#4CAF50',      // Verde Bosque
-                maguey: '#FFC107',      // Amarillo Maguey
-                turquesa: '#00796B',    // Azul Turquesa
-                coral: '#FF5722',       // Rojo Coral
-                arena: '#FAFAFA',       // Blanco Arena
+                lightgray: '#768872',      
+                darkgreen: '#324132',      
+                turquesa: '#00796B',    
+                coral: '#FF5722',       
+                arena: '#FAFAFA',       
             },
         },
     },
