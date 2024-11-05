@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Regions;
+use App\Models\ProtectedArea;
 use Illuminate\Http\Request;
 
-class RegionsController extends Controller
+class ProtectedAreaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class RegionsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Regions $regions)
+    public function show(ProtectedArea $ProtectedArea)
     {
         //
     }
@@ -42,7 +42,7 @@ class RegionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Regions $regions)
+    public function edit(ProtectedArea $ProtectedArea)
     {
         //
     }
@@ -50,7 +50,7 @@ class RegionsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Regions $regions)
+    public function update(Request $request, ProtectedArea $ProtectedArea)
     {
         //
     }
@@ -58,7 +58,7 @@ class RegionsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Regions $regions)
+    public function destroy(ProtectedArea $ProtectedArea)
     {
         //
     }
