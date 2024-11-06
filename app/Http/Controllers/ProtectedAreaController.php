@@ -3,61 +3,54 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProtectedArea;
+use App\Models\Region;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 
 class ProtectedAreaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
-        //
+        $regions = Region::all();
+        $protected_areas = ProtectedArea::with('region:id,region_name', 'species:common_name')->get();
+        return Inertia::render('ProtectedAreas/Index', [
+            'protected_areas' => $protected_areas,
+            'regions' => $regions
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
+  
     public function show(ProtectedArea $ProtectedArea)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+  
     public function edit(ProtectedArea $ProtectedArea)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+   
     public function update(Request $request, ProtectedArea $ProtectedArea)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy(ProtectedArea $ProtectedArea)
     {
         //
