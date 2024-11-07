@@ -37,6 +37,9 @@ const msj = ref('');
 const classMsj = ref('hidden');
 
 const openModalView = (a) => {
+    v.value.name = a.area_name; 
+    v.value.region = a.region.region_name; 
+    v.value.species = a.species; 
     showModalView.value = true;
 };
 const openModalForm = () => {
@@ -48,7 +51,7 @@ const openModalDel = () => {
 };
 
 const closeModalView = () => {
-    showModalDel.value = false;
+    showModalView.value = false;
 };
 
 const closeModalForm = () => {
@@ -146,7 +149,14 @@ const closeModalDel = () => {
         </div>
         <Modal :show="showModalView" @close="closeModalView">
             <div class="p-6">
-                
+                <p>Área protegida: <span class="text-lg font-medium text-gray-900">{{ v.name }}</span></p>
+                <p>Región: <span class="text-lg font-medium text-gray-900">{{ v.region }}</span></p>
+                Especies:
+                <ol>
+                    <li class="text-lg font-medium text-gray-900" v-for="b, i in v.species">
+                        {{ (i + 1) + '. ' + b.common_name }}
+                    </li>
+                </ol>
             </div>
 
             <div class="mt-6 flex justify-end">

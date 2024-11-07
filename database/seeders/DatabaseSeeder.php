@@ -21,10 +21,12 @@ class DatabaseSeeder extends Seeder
         // Crear 15 especies
         Specie::factory(15)->create();
 
-        // Poblar la tabla pivot protectedArea_specie
-        Specie::all()->each(function ($species) {
-            $protectedAreaIds = ProtectedArea::pluck('id');
-            $species->protectedArea()->attach($protectedAreaIds);
+        
+        // Poblar la tabla pivote protected_area_specie con asociaciones aleatorias
+        ProtectedArea::all()->each(function ($protectedArea) {
+            // Selecciona entre 1 y 5 especies aleatorias para cada área protegida
+            $speciesIds = Specie::inRandomOrder()->take(rand(1, 5))->pluck('id');
+            $protectedArea->species()->attach($speciesIds);
         });
     }
 }
