@@ -29,30 +29,53 @@ class ProtectedAreaController extends Controller
     
     public function store(Request $request)
     {
+        $request->validate([
+            'area_name' => 'required|string|max:255',
+            'area_km2' => 'required|numeric|between:0,99999999.99',
+            'established_date' => 'required|date',
+            'protection_level' => 'required|string|max:100',
+            'region_id' => 'required|numeric'
+        ]);
+        
+        $protectedArea = new ProtectedArea($request->input());
+        $protectedArea->save();
+        
+        return redirect('protectedAreas');
+    }
+
+  
+    public function show(ProtectedArea $protectedArea)
+    {
         //
     }
 
   
-    public function show(ProtectedArea $ProtectedArea)
+    public function edit(ProtectedArea $protectedArea)
     {
-        //
-    }
-
-  
-    public function edit(ProtectedArea $ProtectedArea)
-    {
-        //
+        
     }
 
    
-    public function update(Request $request, ProtectedArea $ProtectedArea)
+    public function update(Request $request, ProtectedArea $protectedArea)
     {
-        //
+        // dd($protectedArea, $request->all()); 
+        $request->validate([
+            'area_name' => 'required|string|max:255',
+            'area_km2' => 'required|numeric|between:0,99999999.99',
+            'established_date' => 'required|date',
+            'protection_level' => 'required|string|max:100',
+            'region_id' => 'required|numeric'
+        ]);
+
+        $protectedArea->update($request->input());
+        return redirect('protectedAreas');
     }
 
    
-    public function destroy(ProtectedArea $ProtectedArea)
+    public function destroy(ProtectedArea $protectedArea)
     {
-        //
+        // dd($ProtectedArea); 
+        $protectedArea->delete();
+        return redirect('protectedAreas');
     }
 }
