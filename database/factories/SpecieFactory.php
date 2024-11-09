@@ -56,11 +56,70 @@ class SpecieFactory extends Factory
                 'common_name' => 'Pavo Ocelado',
                 'description' => 'Es un pavo silvestre con colores llamativos, que habita en las selvas de la Península de Yucatán. Es conocido por su plumaje iridiscente y su canto distintivo.',
                 'threats' => 'Pérdida de hábitat y caza excesiva.'
+            ],
+            [
+                'scientific_name' => 'Leopardus wiedii',
+                'common_name' => 'Margay',
+                'description' => 'Un felino pequeño de hábitos nocturnos, conocido por su habilidad para trepar árboles.',
+                'threats' => 'Pérdida de hábitat y caza furtiva.'
+            ],
+            [
+                'scientific_name' => 'Mustela frenata',
+                'common_name' => 'Comadreja de cola larga',
+                'description' => 'Un pequeño carnívoro ágil y rápido, que habita en bosques templados y zonas montañosas.',
+                'threats' => 'Destrucción de hábitat y fragmentación.'
+            ],
+            [
+                'scientific_name' => 'Ovis canadensis',
+                'common_name' => 'Borrego cimarrón',
+                'description' => 'Un mamífero conocido por sus cuernos grandes y su habilidad para trepar terrenos escarpados.',
+                'threats' => 'Caza y pérdida de hábitat.'
+            ],
+            [
+                'scientific_name' => 'Crotalus durissus',
+                'common_name' => 'Serpiente de cascabel',
+                'description' => 'Una especie de serpiente venenosa que habita en zonas áridas y semiáridas de México.',
+                'threats' => 'Muerte intencionada por miedo y pérdida de hábitat.'
+            ],
+            [
+                'scientific_name' => 'Urocyon cinereoargenteus',
+                'common_name' => 'Zorro gris',
+                'description' => 'Un mamífero carnívoro adaptable que habita en diversas regiones de México.',
+                'threats' => 'Pérdida de hábitat y caza.'
+            ],
+            [
+                'scientific_name' => 'Tapirus bairdii',
+                'common_name' => 'Tapir Centroamericano',
+                'description' => 'Es el mamífero terrestre más grande de América Central, habita en selvas y pantanos.',
+                'threats' => 'Pérdida de hábitat y caza ilegal.'
+            ],
+            [
+                'scientific_name' => 'Vulpes macrotis',
+                'common_name' => 'Zorro del Desierto',
+                'description' => 'Un zorro adaptado a la vida en zonas áridas, conocido por sus grandes orejas.',
+                'threats' => 'Pérdida de hábitat debido a la expansión agrícola.'
+            ],
+            [
+                'scientific_name' => 'Herpailurus yagouaroundi',
+                'common_name' => 'Yaguarundí',
+                'description' => 'Un felino pequeño y ágil, que habita en selvas y bosques densos.',
+                'threats' => 'Destrucción de hábitat y caza.'
+            ],
+            [
+                'scientific_name' => 'Crax rubra',
+                'common_name' => 'Hocofaisán',
+                'description' => 'Un ave grande de la familia Cracidae que habita en las selvas tropicales de México.',
+                'threats' => 'Caza y destrucción de su hábitat.'
+            ],
+            [
+                'scientific_name' => 'Chelonia mydas',
+                'common_name' => 'Tortuga Verde',
+                'description' => 'Una tortuga marina que habita en aguas tropicales y subtropicales.',
+                'threats' => 'Captura accidental, pérdida de hábitat y contaminación del océano.'
             ]
         ];
-
-        // Selecciona una especie aleatoria de la lista
-        $species = $this->faker->randomElement($speciesData);
+        
+        $species = $this->faker->unique()->randomElement($speciesData);
 
         return [
             'scientific_name' => $species['scientific_name'],
