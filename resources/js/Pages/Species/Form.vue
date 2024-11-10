@@ -7,7 +7,9 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import InputGroup from '@/Components/InputGroup.vue';
 import InputError from '@/Components/InputError.vue';
 import {ref} from 'vue';
-
+import select2 from 'select2';
+select2();
+import Select2 from 'vue3-select2-component';
 
 const props = defineProps({
     protectedAreas: { type: Object },
@@ -36,6 +38,14 @@ const req = ref('required');
 const srcImg = ref('../../storage/img/example.png');
 const msj = ref('');
 const classMsj = ref('hidden');
+
+const options = ref([]);
+
+props.protectedAreas.map((row) => {
+  options.value.push({ 'id': row.id, 'text': row.area_name });
+});
+
+
 if (props.specie != null) {
   form.scientific_name = props.specie.scientific_name;
   form.common_name = props.specie.common_name;
@@ -48,6 +58,9 @@ if (props.specie != null) {
   form.image = props.specie.image;
   form.id = props.specie.id;
   srcImg.value = '../../storage/' + props.specie.image;
+    props.protectedAreasOfSpecie.map((row) => {
+        form.protectedAreas.push(row.id);
+    });
 }
 
 const save = () => {
@@ -190,6 +203,13 @@ const showImg = (e) => {
                         </svg>
                     </InputGroup>
                     <InputError :message="form.errors.image"/>
+                    <span class="mt-5">Añadir Áreas Protegidas</span>
+                    <Select2 v-model="form.protectedAreas" :options="options"
+                      :settings="{ multiple: true, width: '100%' }"
+                      @change="form.protectedAreas = $event.target.value" 
+                    />
+                    <InputError :message="form.errors.protectedAreas" />
+
                     <PrimaryButton>Guardar</PrimaryButton>
 
                 

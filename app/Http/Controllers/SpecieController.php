@@ -39,6 +39,7 @@ class SpecieController extends Controller
             'population_estimate' => 'required|numeric',
             'threats' => 'required|max:500',
             'image' => 'required|file|mimes:png,jpg,jpeg,gif',
+            'protectedAreas' => 'required|array'
         ]);
     
         $specie = Specie::create($request->all());
@@ -49,7 +50,7 @@ class SpecieController extends Controller
             $specie->image = '/img/' . $imgName;
             $specie->save();
         }
-    
+        $specie->protectedArea()->sync($request->protectedAreas);
         return redirect('specie/create')->with('success', 'Especie endémica creada');
     }
 
@@ -64,6 +65,8 @@ class SpecieController extends Controller
             'population_estimate' => 'required|numeric',
             'threats' => 'required|max:500',
             'id' => 'required|numeric',
+            'protectedAreas' => 'required|array'
+
         ]);
     
         $specie = Specie::find($request->id);
@@ -75,6 +78,7 @@ class SpecieController extends Controller
             $specie->image = '/img/' . $imgName;
             $specie->save();
         }
+        $specie->protectedArea()->sync($request->protectedAreas);
         return redirect('specie')->with('success', 'Especie endémica actualizada');
     }
 
