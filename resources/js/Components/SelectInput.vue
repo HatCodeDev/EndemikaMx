@@ -1,7 +1,7 @@
 <template>
     <div class="relative text-lightgray focus-within:text-darkgreen">
         <select
-        class="block w-full pl-10 mt-1 text-sm text-darkgreen border border-lightgray bg-white focus:border-darkgreen focus:ring focus:ring-darkgreen focus:ring-opacity-10 focus:outline-none form-input" 
+       class="block w-full pl-10 mt-1 text-sm text-darkgreen border border-lightgray bg-white rounded-md shadow-sm focus:border-darkgreen focus:ring focus:ring-darkgreen focus:ring-opacity-10 focus:outline-none transition-all duration-200 ease-in-out"
         :placeholder="text" 
         :required="required"  
         :value="modelValue" 

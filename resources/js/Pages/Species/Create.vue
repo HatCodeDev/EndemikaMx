@@ -1,6 +1,11 @@
 <script setup>
+import Form from './Form.vue';
+const props = defineProps({
+  protectedAreas: { type: Object }
+});
+
 </script>
 
 <template>
-    Create
+  <Form :protectedAreas="protectedAreas" />
 </template>

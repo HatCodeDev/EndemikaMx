@@ -40,8 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('protectedAreas', App\Http\Controllers\ProtectedAreaController::class);
-    Route::resource('species', App\Http\Controllers\SpeciesController::class);
-    Route::post('updateSpecie', [App\Http\Controllers\SpeciesController::class, 'updatespecie'])->name('updatespecie');
+    Route::resource('specie', App\Http\Controllers\SpecieController::class);
+    Route::post('updateSpecie', [App\Http\Controllers\SpecieController::class, 'updatespecie'])->name('updatespecie');
 
 
 });

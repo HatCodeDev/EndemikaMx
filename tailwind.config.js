@@ -17,10 +17,7 @@ export default {
             },
             colors: {
                 lightgray: '#768872',      
-                darkgreen: '#324132',      
-                turquesa: '#00796B',    
-                coral: '#FF5722',       
-                arena: '#FAFAFA',       
+                darkgreen: '#324132',            
             },
         },
     },

@@ -59,15 +59,15 @@
                     clip-rule="evenodd"></path>
             </svg>
           </button>
-            <ul v-show="showingTwoLevelMenu || route().current('species.index') || route().current('species.create') " class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
+            <ul v-show="showingTwoLevelMenu || route().current('specie.index') || route().current('species.create') " class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50"
                 aria-label="submenu">
               <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                <NavLink :href="route('species.index')" :active="route().current('species.index')">
+                <NavLink :href="route('specie.index')" :active="route().current('specie.index')">
                   List
                 </NavLink>
               </li>
               <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                <NavLink :href="route('species.create')" :active="route().current('species.create')">
+                <NavLink :href="route('specie.create')" :active="route().current('specie.create')">
                   Create
                 </NavLink>
               </li>
