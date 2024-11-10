@@ -11,7 +11,7 @@ import {ref} from 'vue';
 import select2 from 'select2';
 select2();
 import Select2 from 'vue3-select2-component';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+
 
 const props = defineProps({
     protectedAreas: { type: Object },
