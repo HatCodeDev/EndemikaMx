@@ -6,16 +6,27 @@ import DarkButton from '@/Components/DarkButton.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import InputGroup from '@/Components/InputGroup.vue';
 import InputError from '@/Components/InputError.vue';
+import SelectInput from '@/Components/SelectInput.vue';
 import {ref} from 'vue';
 import select2 from 'select2';
 select2();
 import Select2 from 'vue3-select2-component';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 
 const props = defineProps({
     protectedAreas: { type: Object },
     specie: { type: Object },
     protectedAreasOfSpecie:  { type: Object }
 });
+
+const conservationStatusOptions = [
+  { id: 'En peligro crítico', region_name: 'En peligro crítico' },
+  { id: 'En peligro', region_name: 'En peligro' },
+  { id: 'Vulnerable', region_name: 'Vulnerable' },
+  { id: 'Casi amenazado', region_name: 'Casi amenazado' },
+  { id: 'Preocupación menor', region_name: 'Preocupación menor' },
+];
+
 const form = useForm({
   id: '',
   scientific_name: '',
@@ -99,11 +110,11 @@ const showImg = (e) => {
 
                     <!-- Botón alineado a la derecha -->
                     <NavLink :href="route('specie.index')">
-                      <DarkButton>
+                      <PrimaryButton>
                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <path fill="#ffffff" d="M48.5 224L40 224c-13.3 0-24-10.7-24-24L16 72c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2L98.6 96.6c87.6-86.5 228.7-86.2 315.8 1c87.5 87.5 87.5 229.3 0 316.8s-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3c-62.2-62.2-162.7-62.5-225.3-1L185 183c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8L48.5 224z"/>
                         </svg>
-                      </DarkButton>
+                      </PrimaryButton>
                     </NavLink>
             </div>
         </template>
@@ -152,13 +163,18 @@ const showImg = (e) => {
                     <InputError :message="form.errors.description"/>
                 
                     <!-- Estado de conservación -->
-                    <InputGroup :text="'Estado de conservación'" :required="'required'" v-model="form.conservation_status">
+                    <SelectInput 
+                    :text="'Estado de Conservación'" 
+                    :required="'required'" 
+                    v-model="form.conservation_status" 
+                    :options="conservationStatusOptions"
+                    >
                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <path fill="#324132" d="M269.4 2.9C265.2 1 260.7 0 256 0s-9.2 1-13.4 2.9L54.3 82.8c-22 9.3-38.4 31-38.3 57.2c.5 99.2 41.3 280.7 213.6 363.2c16.7 8 36.1 8 52.8 0C454.7 420.7 495.5 239.2 496 140c.1-26.2-16.3-47.9-38.3-57.2L269.4 2.9zM144 221.3c0-33.8 27.4-61.3 61.3-61.3c16.2 0 31.8 6.5 43.3 17.9l7.4 7.4 7.4-7.4c11.5-11.5 27.1-17.9 43.3-17.9c33.8 0 61.3 27.4 61.3 61.3c0 16.2-6.5 31.8-17.9 43.3l-82.7 82.7c-6.2 6.2-16.4 6.2-22.6 0l-82.7-82.7c-11.5-11.5-17.9-27.1-17.9-43.3z"/>
                         </svg>
-                    </InputGroup>
+                    </SelectInput>
                     <InputError :message="form.errors.conservation_status"/>
-                
+
                     <!-- Esperanza de vida promedio -->
                     <InputGroup :text="'Esperanza de vida promedio'" v-model="form.average_lifespan" type="number">
                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

@@ -20,7 +20,7 @@ class Region extends Model
     */
     public function protectedArea(): HasMany
     {
-        return $this->hasMany(ProtectedArea::class, 'Region_id');
+        return $this->hasMany(ProtectedArea::class, 'region_id');
     }
 
 }

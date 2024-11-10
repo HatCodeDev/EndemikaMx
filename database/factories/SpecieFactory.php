@@ -24,7 +24,20 @@ class SpecieFactory extends Factory
             'Preocupación menor'
         ];
 
-        $dietTypes = ['Herbívoro', 'Carnívoro', 'Omnívoro', 'Otro'];
+        $dietTypes = [
+            'Semillas',
+            'Bambú',
+            'Frutas',
+            'Insectos',
+            'Hierbas',
+            'Carne de pequeños mamíferos',
+            'Pescado',
+            'Plantas acuáticas',
+            'Raíces',
+            'Nectar',
+            'Hojas',
+            'Otro'
+        ];
 
         $speciesData = [
             [
@@ -127,7 +140,7 @@ class SpecieFactory extends Factory
             'description' => $species['description'],
             'conservation_status' => $this->faker->randomElement($conservationStatuses),
             'average_lifespan' => $this->faker->numberBetween(5, 30), 
-            'diet_type' => $this->faker->randomElement($dietTypes),
+            'diet_type' => $this->faker->randomElement($dietTypes), 
             'population_estimate' => $this->faker->numberBetween(100, 5000), 
             'threats' => $species['threats'],
             'image' => '/img/example.png',

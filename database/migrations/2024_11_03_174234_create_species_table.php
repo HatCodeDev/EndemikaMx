@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description')->nullable(); 
             $table->string('conservation_status', 100); 
             $table->unsignedSmallInteger('average_lifespan')->nullable();
-            $table->enum('diet_type', ['Herbivoro', 'carnivoro', 'omnivoro', 'otro'])->default('otro'); 
+            $table->string('diet_type', 100);
             $table->unsignedBigInteger('population_estimate')->nullable(); 
             $table->text('threats')->nullable();
             $table->string('image', 255)->nullable();
